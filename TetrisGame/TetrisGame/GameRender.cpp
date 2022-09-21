@@ -60,8 +60,8 @@ void GameRender::GameStart()
 	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursorInfo);
 	m_gameBoard.ScreenInit();
 
-	std::cout << "게임을 시작하려면 아무 키나 입력하세요\n";
-	int temp = _getch();
+	std::cout << "게임 속도를 입력하세요(블럭이 1초당 n칸 떨어집니다) : ";
+    std::cin >> gameSpeed;
 	m_block.CreateBlock();
 }
 
@@ -91,10 +91,9 @@ void GameRender::BlockDropSpeed()
 {
 	m_gameBoard.ScreenInit();
 
-    // 2000을 2의 제곱수로 비트연산한다. gameSpeed가 2일때 1000, 4일때 500... 으로 2배씩 속도가 증가하게 된다. 
-    if (GetTickCount64() - startTick >= (2000 >> gameSpeed))
+    if (GetTickCount64() - startTick >= (1000 / gameSpeed))
     {
-        if (gameSpeed < 4 && GetTickCount64() - speedLevelTick >= 15000) // 15초 마다 스피드 증가
+        if (gameSpeed < 30 && GetTickCount64() - speedLevelTick >= 15000) // 15초 마다 스피드 증가
         {
             gameSpeed++;
             speedLevelTick = GetTickCount64(); // 블럭이 내려가는 속도 레벨
