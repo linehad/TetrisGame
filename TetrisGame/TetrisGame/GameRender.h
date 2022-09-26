@@ -21,6 +21,7 @@ private:
 public:
 
 	GameRender();
+	GameRender(Player& player);
 	~GameRender();
 
 	bool b_runTetris = true;

@@ -16,6 +16,17 @@ GameRender::GameRender()
     gameSpeed = 1 << m_player.acceleration;
 }
 
+GameRender::GameRender(Player& player) : m_player(player)
+{
+    m_player.Link(&m_gameBoard, &m_block);
+    m_block.Link(&m_gameBoard, &m_player);
+    startTick = GetTickCount64();
+    speedLevelTick = GetTickCount64();
+    moveTick = GetTickCount64();
+
+    gameSpeed = 1 << m_player.acceleration;
+}
+
 GameRender::~GameRender()
 {
 	m_gameBoard.ScreenRelease();

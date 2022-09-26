@@ -2,10 +2,12 @@
 #include "GameBoard.h"
 #include "Block.h"
 #include "Player.h"
+#include "Computer.h"
 
 int main()
 {
-	GameRender tetris;
+	Computer com;
+	GameRender tetris(com);
 	tetris.GameStart();
 	while (tetris.b_runTetris)
 	{

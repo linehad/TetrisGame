@@ -127,7 +127,7 @@ void Block::CreateBlock()
 	srand((unsigned int)time(NULL));
 	int randBlock = rand() % 7;
 
-	for (int i = 0; i < 4; i++)
+ 	for (int i = 0; i < 4; i++)
 		for (int j = 0; j < 4; j++)
 			block[i][j] = 0;
 
