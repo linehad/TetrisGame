@@ -49,6 +49,11 @@ void Block::RotateBlock()
 	}
 }
 
+Player* Block::getPlayer()
+{
+	return m_Player;
+}
+
 // 돌려진 블럭 객체를 게임보드에 반영하는 함수
 void Block::RotateBlockSave()
 {
@@ -57,6 +62,7 @@ void Block::RotateBlockSave()
 
 	m_Player->touchLeftWall = false;
 	m_Player->touchRightWall = false;
+	cantRotate = false;
 
 	bool flag = false;
 	const int WALL = 103;
@@ -84,6 +90,7 @@ void Block::RotateBlockSave()
 				// 회전 반경에 놓아진 블럭이 있으면 취소
 				if (m_GameBoard->board[ty][tx] == 2)
 				{
+					cantRotate = true;
 					ReMoveBlock();
 					copy(saveBlock.begin(), saveBlock.end(), block.begin());
 					copy(m_GameBoard->saveBoard.begin(), m_GameBoard->saveBoard.end(), m_GameBoard->board.begin());

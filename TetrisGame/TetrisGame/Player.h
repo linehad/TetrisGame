@@ -4,7 +4,7 @@ class Block;
 class GameBoard;
 class Player
 {
-private:
+protected:
 	Block* m_block;
 	GameBoard* m_GameBoard;
 public:
@@ -19,7 +19,10 @@ public:
 	void MoveLeft();
 	void MoveRight();
 	void MoveDown();
-	void MoveBlock();
+	virtual void MoveBlock();
+
+	Block GetBlock();
+	GameBoard* GetGameBoard();
 
 	void Link(GameBoard* GameBoardOb, Block* blockOb);
 };

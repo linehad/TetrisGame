@@ -6,9 +6,9 @@
 class GameRender
 {
 private:
-	Player m_player;
-	GameBoard m_gameBoard;
-	Block m_block;
+	Player* m_player;
+	GameBoard* m_gameBoard;
+	Block* m_block;
 
 	int gameSpeed;
 
@@ -21,7 +21,7 @@ private:
 public:
 
 	GameRender();
-	GameRender(Player& player);
+	GameRender(Player& player, GameBoard& gameboard, Block& block);
 	~GameRender();
 
 	bool b_runTetris = true;

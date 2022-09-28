@@ -8,6 +8,30 @@ GameBoard::GameBoard()
 {	
 	board.resize(24, std::vector<int>(14, 0)); // x = 2부터 11까지 y = 2 부터 21 까지 || 0, 1, 12 13 벽, 0, 1, 22, 23 벽
     saveBoard.resize(24, std::vector<int>(14, 0));
+
+    for (int j = 0; j < 14; j++)
+    {
+        // 위쪽 벽
+        board[0][j] = 101;
+        board[1][j] = 101;
+
+        // 아래 벽
+        board[22][j] = 102;
+        board[23][j] = 102;
+    }
+
+    // 세로 그리기
+    for (int j = 2; j < 22; j++)
+    {
+        // 왼쪽 벽
+        board[j][0] = 103;
+        board[j][1] = 103;
+
+
+        // 오른쪽 벽
+        board[j][12] = 103;
+        board[j][13] = 103;
+    }
 }
 
 // 한줄이 다 차면 비워버림

@@ -35,7 +35,7 @@ void Player::MoveLeft()
 	m_block->lastX = 12;
 	for (int i = tlX; i <= trX; i++)
 	{
-		for (int j = ty; j > ty - 4 ; j--)
+			for (int j = ty; j > ty - 4 ; j--)
 		{
 			// 현재 좌표에 블럭이 들어 있다면
 			if (m_GameBoard->board[j][i] == 1)
@@ -284,6 +284,16 @@ void Player::MoveBlock()
 	{
 		MoveRight();
 	}
+}
+
+Block Player::GetBlock()
+{
+	return *m_block;
+}
+
+GameBoard* Player::GetGameBoard()
+{
+	return m_GameBoard;
 }
 
 void Player::Link(GameBoard* GameBoardOb, Block* blockOb)

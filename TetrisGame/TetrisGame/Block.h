@@ -12,6 +12,7 @@ private:
 	std::vector<std::vector<int>> saveBlock;
 public:
 	bool b_gameOver = false;
+	bool cantRotate = false;
 
 	int blockPosition;
 	int x, y;
@@ -24,8 +25,10 @@ public:
 	Block();
 	void ReMoveBlock();
 	void RotateBlockSave();
-	void CreateBlock();
+	virtual void CreateBlock();
 	void RotateBlock();
+
+	Player* getPlayer();
 
 	void Link(GameBoard* GameBoardOB, Player* PlayerOB);
 };
