@@ -115,7 +115,7 @@ void Computer::HightLineHoleBump()
 
 void Computer::MoveBlock()
 {
-	if (GetTickCount64() - Tick >= 200)
+	if (GetTickCount64() - Tick >= 20)
 	{
 		if (moveBlock.size() <= count)
 		{
